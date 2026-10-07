@@ -1,10 +1,46 @@
-// 0 = zondag … 6 = zaterdag. (Google Maps, okt 2026) — 7 dagen open
-const HOURS = {
-  0: ["10:00", "18:00"], 1: ["10:00", "19:00"], 2: ["10:00", "19:00"], 3: ["10:00", "19:00"],
-  4: ["10:00", "19:00"], 5: ["10:00", "19:00"], 6: ["10:00", "18:00"],
-};
+// ===== Pas hier diensten, prijzen & uren aan =====
+// price: "€20" of null (= geen prijs tonen)
+const PRICES = [
+  {
+    "name": "Knippen",
+    "desc": "Klassieke herensnit met schaar en tondeuse.",
+    "price": null
+  },
+  {
+    "name": "Fades",
+    "desc": "Low, mid, high of skin fade.",
+    "price": null
+  },
+  {
+    "name": "Baard",
+    "desc": "Trimmen, contouren en scherpe lijnen.",
+    "price": null
+  },
+  {
+    "name": "Jongens",
+    "desc": "Geduldig en vriendelijk geknipt.",
+    "price": null
+  }
+];
+
+// 0 = zondag … 6 = zaterdag. [open, sluit] of null = gesloten.
+const HOURS = {"0": ["10:00", "18:00"], "1": ["10:00", "19:00"], "2": ["10:00", "19:00"], "3": ["10:00", "19:00"], "4": ["10:00", "19:00"], "5": ["10:00", "19:00"], "6": ["10:00", "18:00"]};
+const OPEN_LABEL = "Aarschotsesteenweg 664";
+const CLOSED_LABEL = "Aarschotsesteenweg 664 · Wilsele";
 const DAY_NAMES = ["Zondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag"];
 
+// ===== Diensten =====
+document.getElementById("priceList").innerHTML = PRICES.map(p => p.price ? `
+  <div class="menu__item">
+    <h3>${p.name}</h3><span class="menu__dots"></span><span class="menu__price">${p.price}</span>
+    <p>${p.desc}</p>
+  </div>` : `
+  <div class="menu__item menu__item--noprice">
+    <h3>${p.name}</h3>
+    <p>${p.desc}</p>
+  </div>`).join("");
+
+// ===== Openingsuren + live status (Belgische tijd) =====
 function brusselsNow() {
   const parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Brussels", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false }).formatToParts(new Date());
   const get = t => parts.find(p => p.type === t).value;
@@ -21,23 +57,27 @@ function renderHours() {
   const today = HOURS[day];
   const isOpen = !!today && mins >= toMins(today[0]) && mins < toMins(today[1]);
   let text;
-  if (isOpen) text = `Nu open tot ${today[1]}`;
-  else if (today && mins < toMins(today[0])) text = `Vandaag open vanaf ${today[0]}`;
+  if (isOpen) text = `Nu open · tot ${today[1]}`;
+  else if (today && mins < toMins(today[0])) text = `Gesloten · opent vandaag om ${today[0]}`;
   else {
-    const next = HOURS[(day + 1) % 7];
-    text = `Gesloten · morgen open vanaf ${next[0]}`;
+    let n = 1;
+    while (n < 8 && !HOURS[(day + n) % 7]) n++;
+    const d = (day + n) % 7;
+    text = HOURS[d] ? `Gesloten · opent ${n === 1 ? "morgen" : DAY_NAMES[d].toLowerCase()} om ${HOURS[d][0]}` : "Gesloten";
   }
+  document.querySelector("[data-status-text]").textContent = text;
+  document.querySelector("[data-status-box]").classList.toggle("is-open", isOpen);
   const s = document.querySelector("[data-status]");
-  s.textContent = text;
   s.classList.toggle("is-open", isOpen);
+  s.textContent = isOpen ? `Nu open · ${OPEN_LABEL}` : CLOSED_LABEL;
 }
 renderHours();
 setInterval(renderHours, 60_000);
 
-// Nav
+// ===== Nav =====
 const nav = document.getElementById("nav");
 const toggle = document.getElementById("navToggle");
-const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 30);
+const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 40);
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 toggle.addEventListener("click", () => toggle.setAttribute("aria-expanded", nav.classList.toggle("is-open")));
@@ -46,10 +86,29 @@ document.querySelectorAll("#navLinks a").forEach(a => a.addEventListener("click"
   toggle.setAttribute("aria-expanded", "false");
 }));
 
-// Reveal
+// ===== Reveal on scroll =====
 const io = new IntersectionObserver(entries => entries.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
-}), { threshold: 0.12 });
-document.querySelectorAll(".reveal").forEach((el, i) => { el.style.transitionDelay = `${(i % 4) * 90}ms`; io.observe(el); });
+}), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".reveal").forEach((el, i) => { el.style.transitionDelay = `${(i % 3) * 90}ms`; io.observe(el); });
+
+// ===== Lightbox =====
+const items = [...document.querySelectorAll(".gallery__item img")];
+const lb = document.getElementById("lightbox");
+const lbImg = lb.querySelector("img");
+let idx = 0;
+const show = i => { idx = (i + items.length) % items.length; lbImg.src = items[idx].src; lbImg.alt = items[idx].alt; };
+items.forEach((img, i) => img.parentElement.addEventListener("click", () => { show(i); lb.hidden = false; document.body.style.overflow = "hidden"; }));
+const close = () => { lb.hidden = true; document.body.style.overflow = ""; };
+lb.querySelector(".lightbox__close").addEventListener("click", close);
+lb.querySelector(".lightbox__prev").addEventListener("click", e => { e.stopPropagation(); show(idx - 1); });
+lb.querySelector(".lightbox__next").addEventListener("click", e => { e.stopPropagation(); show(idx + 1); });
+lb.addEventListener("click", e => { if (e.target === lb) close(); });
+document.addEventListener("keydown", e => {
+  if (lb.hidden) return;
+  if (e.key === "Escape") close();
+  if (e.key === "ArrowLeft") show(idx - 1);
+  if (e.key === "ArrowRight") show(idx + 1);
+});
 
 document.getElementById("year").textContent = new Date().getFullYear();

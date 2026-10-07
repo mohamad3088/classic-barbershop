@@ -15,4 +15,4 @@ Website voor Classic Barbershop, Aarschotsesteenweg 664, 3012 Wilsele (Leuven).
 - [ ] Origineel logo (nu nagebouwd met het lettertype Yellowtail)
 
 ## Design
-Gentleman's lounge: ossenbloed-rood, crème en zwart, een capitonné-patroon zoals de chesterfield, een knipperend neonbord "OPEN 7/7" en Yellowtail + Oswald + Lora.
+Premium donker (zelfde stijl als MG Barbershop): bijna-zwarte achtergrond, Bodoni Moda + Manrope, een eigen accentkleur en een monogram-logo (`img/logo-*.svg`). Diensten, prijzen en uren staan bovenaan `script.js`.

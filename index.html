@@ -5,143 +5,168 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Classic Barbershop — Barbier in Wilsele (Leuven) · 7 dagen open</title>
   <meta name="description" content="Classic Barbershop, Aarschotsesteenweg 664 in Wilsele (Leuven). Knippen, fades en baard — 7 dagen op 7 open. 4,9★ uit 57 Google-reviews.">
-  <meta name="theme-color" content="#2a0d10">
+  <meta name="theme-color" content="#0d0c0a">
   <meta property="og:title" content="Classic Barbershop — Wilsele">
-  <meta property="og:description" content="Zeven dagen per week open. Aarschotsesteenweg 664.">
-  <meta property="og:image" content="img/uithangbord.jpg">
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <meta property="og:description" content="Classic Barbershop, Aarschotsesteenweg 664 in Wilsele (Leuven). Knippen, fades en baard — 7 dagen op 7 open. 4,9★ uit 57 Google-reviews.">
+  <meta property="og:image" content="img/balie-neon.jpg">
+  <link rel="icon" href="img/logo-dark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Oswald:wght@400;500;600&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BarberShop",
-    "name": "Classic Barbershop",
-    "image": "img/uithangbord.jpg",
-    "telephone": "+32 492 86 04 37",
-    "address": {"@type": "PostalAddress","streetAddress": "Aarschotsesteenweg 664","postalCode": "3012","addressLocality": "Wilsele (Leuven)","addressCountry": "BE"},
-    "geo": {"@type": "GeoCoordinates","latitude": 50.9253996,"longitude": 4.7220358},
-    "openingHours": ["Mo-Fr 10:00-19:00","Sa-Su 10:00-18:00"],
-    "aggregateRating": {"@type": "AggregateRating","ratingValue": "4.9","reviewCount": "57"}
-  }
-  </script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BarberShop", "name": "Classic Barbershop", "address": {"@type": "PostalAddress", "streetAddress": "Aarschotsesteenweg 664", "postalCode": "3012", "addressLocality": "Wilsele (Leuven)", "addressCountry": "BE"}, "geo": {"@type": "GeoCoordinates", "latitude": 50.9253996, "longitude": 4.7220358}, "openingHours": ["Mo-Fr 10:00-19:00", "Sa-Su 10:00-18:00"], "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "57"}, "telephone": "0492 86 04 37", "image": "img/balie-neon.jpg"}</script>
 </head>
 <body>
 
 <header class="nav" id="nav">
-  <a href="#top" class="brand"><span class="brand__script">Classic</span><span class="brand__caps">Barber Shop</span></a>
+  <a href="#top" class="nav__brand" aria-label="Classic Barbershop — naar boven">
+    <img src="img/logo-cream.svg" alt="" class="nav__logo">
+    <span>Classic <em>Barbershop</em></span>
+  </a>
   <nav class="nav__links" id="navLinks">
-    <a href="#lounge">Lounge</a>
+    <a href="#over">Over ons</a>
     <a href="#diensten">Diensten</a>
-    <a href="#gasten">Gasten</a>
-    <a href="#vinden">Vinden</a>
+    <a href="#werk">Ons werk</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#bezoek">Bezoek</a>
   </nav>
-  <a href="tel:+32492860437" class="nav__phone">0492 86 04 37</a>
-  <button class="nav__toggle" id="navToggle" aria-label="Menu openen" aria-expanded="false"><span></span><span></span><span></span></button>
+  <a href="tel:+32492860437" class="btn btn--gold nav__cta">Bel &amp; reserveer</a>
+  <button class="nav__toggle" id="navToggle" aria-label="Menu openen" aria-expanded="false"><span></span><span></span></button>
 </header>
 
 <main id="top">
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="hero__inner">
-      <div class="hero__copy">
-        <div class="neon" aria-label="Open zeven dagen per week">
-          <span class="neon__open">OPEN</span><span class="neon__days">7/7</span>
-        </div>
-        <h1><span class="script">Classic</span><span class="caps">Barber Shop</span></h1>
-        <p class="tagline">Wilsele · Aarschotsesteenweg 664</p>
-        <p class="lead">Neem plaats, krijg een drankje en laat je knippen door barbiers die weten wat ze doen. Elke dag van de week — ook op zondag.</p>
-        <div class="hero__actions">
-          <a href="tel:+32492860437" class="btn btn--cream">Bel 0492 86 04 37</a>
-          <a href="#vinden" class="btn btn--outline">Openingsuren</a>
-        </div>
-        <p class="status" data-status>…</p>
+    <div class="hero__media">
+      <img src="img/balie-neon.jpg" alt="Balie met Classic Barber Shop-logo en neon-schaar" class="hero__img" style="object-position:50% 35%">
+    </div>
+    <div class="hero__content">
+      <p class="eyebrow"><span class="status" data-status>Aarschotsesteenweg 664 · Wilsele</span></p>
+      <h1 class="hero__title">Elke dag open.<br><em>Elke cut raak.</em></h1>
+      <p class="hero__lead">Neem plaats in de lounge, krijg een drankje en laat je knippen door barbiers die weten wat ze doen. Zeven dagen op zeven.</p>
+      <div class="hero__actions">
+        <a href="tel:+32492860437" class="btn btn--gold">Bel 0492 86 04 37</a>
+        <a href="#diensten" class="btn btn--ghost">Bekijk diensten</a>
       </div>
-      <figure class="hero__frame">
-        <img src="img/uithangbord.jpg" alt="Gevel en uithangbord van Classic Barber Shop">
-        <figcaption>Est. Aarschotsesteenweg</figcaption>
-      </figure>
+      <div class="hero__proof">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p><strong>4,9</strong> op Google · <span>57 reviews</span></p>
+      </div>
     </div>
+    <a href="#over" class="hero__scroll" aria-label="Scroll naar beneden"><span></span></a>
   </section>
 
-  <!-- RATING BAND -->
-  <section class="band">
-    <div><b>4,9</b><span>★★★★★ op Google</span></div>
-    <div><b>57</b><span>tevreden reviews</span></div>
-    <div><b>7</b><span>dagen per week open</span></div>
-    <div><b>☕</b><span>drankje van het huis</span></div>
-  </section>
+  <div class="marquee" aria-hidden="true"><div class="marquee__track"><span>Knippen</span><i>✦</i><span>Fade</span><i>✦</i><span>Baard</span><i>✦</i><span>Jongens</span><i>✦</i><span>Drankje van het huis</span><i>✦</i><span>Open 7/7</span><i>✦</i><span>Knippen</span><i>✦</i><span>Fade</span><i>✦</i><span>Baard</span><i>✦</i><span>Jongens</span><i>✦</i><span>Drankje van het huis</span><i>✦</i><span>Open 7/7</span><i>✦</i></div></div>
 
-  <!-- LOUNGE -->
-  <section class="lounge" id="lounge">
-    <div class="lounge__photos">
-      <img src="img/chesterfield-lounge.jpg" alt="Chesterfield-lounge met lederen zetels in Classic Barbershop" class="lp lp--a reveal" loading="lazy">
-      <img src="img/balie-neon.jpg" alt="Balie met Classic Barber Shop-logo en blauwe neon-schaar" class="lp lp--b reveal" loading="lazy">
+  <!-- OVER -->
+  <section class="section about" id="over">
+    <div class="about__photos reveal">
+      <img src="img/chesterfield-lounge.jpg" alt="Chesterfield-lounge in Classic Barbershop" class="about__img about__img--a" loading="lazy">
+      <img src="img/uithangbord.jpg" alt="Gevel en uithangbord" class="about__img about__img--b" loading="lazy">
+      <img src="img/logo-accent.svg" alt="" class="about__badge">
     </div>
-    <div class="lounge__text reveal">
-      <p class="kicker">De lounge</p>
-      <h2>Leer, neon &amp; <em>een goed gesprek</em></h2>
-      <p>Wachten doe je bij ons in een echte chesterfield-zetel. Zwarte muren, blauw neonlicht, iets te drinken in de hand — en daarna een knipbeurt waar we de tijd voor nemen.</p>
+    <div class="about__text reveal">
+      <p class="eyebrow">De lounge</p>
+      <h2>Leer, neon &amp; <em>een goed gesprek</em>.</h2>
+      <p>Wachten doe je bij ons in een echte chesterfield-zetel. Zwarte muren, neonlicht, iets te drinken in de hand — en daarna een knipbeurt waar we de tijd voor nemen.</p>
       <p>Bijna sluitingstijd? Bel gerust even — klanten vertellen het zelf: we doen graag een extra moeite.</p>
+      <ul class="stats"><li><strong>4,9</strong><span>Google-score</span></li><li><strong>57</strong><span>reviews</span></li><li><strong>7/7</strong><span>dagen open</span></li></ul>
     </div>
   </section>
 
   <!-- DIENSTEN -->
-  <section class="services" id="diensten">
-    <div class="services__head reveal">
-      <p class="kicker">Diensten</p>
-      <h2>Vakwerk, <em>klassiek</em> &amp; modern</h2>
+  <section class="section services" id="diensten">
+    <div class="section__head reveal">
+      <p class="eyebrow">Diensten &amp; prijzen</p>
+      <h2>Alles voor <em>haar &amp; baard</em>.</h2>
+      <p class="muted">Vakwerk, klassiek en modern.</p>
     </div>
-    <div class="tufted">
-      <article class="svc reveal"><span class="svc__no">I</span><h3>Knippen</h3><p>Klassieke herensnit met schaar en tondeuse, strak afgewerkt.</p></article>
-      <article class="svc reveal"><span class="svc__no">II</span><h3>Fades</h3><p>Low, mid, high of skin fade — vloeiend uitgelopen.</p></article>
-      <article class="svc reveal"><span class="svc__no">III</span><h3>Baard</h3><p>Trimmen, contouren en scherpe lijnen met het mes.</p></article>
-      <article class="svc reveal"><span class="svc__no">IV</span><h3>Jongens</h3><p>Ook de jonge heren zijn welkom — geduldig en vriendelijk.</p></article>
-    </div>
-    <p class="services__note reveal">Prijzen? Bel ons of vraag het gewoon in de zaak.</p>
+    <div class="menu reveal" id="priceList"></div>
+    <p class="menu__note muted">Prijzen? Bel ons of vraag het gewoon in de zaak.</p>
   </section>
 
-  <!-- GASTEN -->
-  <section class="guests" id="gasten">
-    <p class="kicker reveal">Wat onze gasten zeggen</p>
-    <div class="guests__grid">
-      <blockquote class="card reveal"><p>“Beste kapper in heel de buurt! Top service, super vriendelijk personeel. Ik kwam na sluitingstijd binnen en werd nog verder geholpen — kreeg zelfs nog een drankje erbij. Gewoon perfect.”</p><cite>M. VH · Google</cite></blockquote>
-      <blockquote class="card reveal"><p>“Zeer aangename kappers. Heel vriendelijk voor mijn zoon van 12. Hier komen we nog.”</p><cite>Lotte E. · Google</cite></blockquote>
-      <blockquote class="card reveal"><p>“Heel vriendelijke mensen. Weten wat ze doen.”</p><cite>Jonathan A. · Google</cite></blockquote>
+  <!-- WERK -->
+  <section class="section work" id="werk">
+    <div class="section__head reveal">
+      <p class="eyebrow">Ons werk</p>
+      <h2>Recht uit de <em>stoel</em>.</h2>
+      
+    </div>
+    <div class="gallery">
+      <button class="gallery__item g-tall reveal"><img src="img/balie-neon.jpg" alt="Balie met neon" loading="lazy"><span>De balie</span></button>
+      <button class="gallery__item reveal"><img src="img/chesterfield-lounge.jpg" alt="Chesterfield-lounge" loading="lazy"><span>De lounge</span></button>
+      <button class="gallery__item g-tall reveal"><img src="img/uithangbord.jpg" alt="Uithangbord" loading="lazy"><span>Aarschotsesteenweg</span></button>
+      <button class="gallery__item reveal"><img src="img/gevel.jpg" alt="Gevel met barberpaal" loading="lazy"><span>De gevel</span></button>
     </div>
   </section>
 
-  <!-- VINDEN -->
-  <section class="find" id="vinden">
-    <div class="find__info reveal">
-      <p class="kicker">Vinden</p>
+  <!-- REVIEWS -->
+  <section class="section reviews" id="reviews">
+    <div class="section__head reveal">
+      <p class="eyebrow">Wat klanten zeggen</p>
+      <h2><span class="big">4,9</span> uit <em>57 reviews</em></h2>
+    </div>
+    <div class="quotes">
+      <figure class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“Beste kapper in heel de buurt!! Top service, super vriendelijk personeel. Ik kwam na sluitingstijd binnen, werd nog verder geholpen en kreeg zelfs nog een drankje erbij. Gewoon perfect.”</blockquote>
+        <figcaption>M. VH · Google</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“Zeer aangename kappers. Heel vriendelijk voor mijn zoon van 12. Hier komen we nog.”</blockquote>
+        <figcaption>Lotte E. · Google</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“Heel vriendelijke mensen. Weten wat ze doen.”</blockquote>
+        <figcaption>Jonathan A. · Google</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- BEZOEK -->
+  <section class="section visit" id="bezoek">
+    <div class="visit__info reveal">
+      <p class="eyebrow">Bezoek ons</p>
       <h2>Aarschotsesteenweg <em>664</em></h2>
-      <p>3012 Wilsele (Leuven)</p>
+      <p class="muted">3012 Wilsele (Leuven).</p>
+      <div class="open-now" data-status-box><span class="dot"></span><span data-status-text>Openingsuren laden…</span></div>
       <table class="hours" id="hours"></table>
-      <div class="find__actions">
-        <a href="tel:+32492860437" class="btn btn--cream">Bel ons</a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Classic+Barbershop+Aarschotsesteenweg+664+3012+Leuven" target="_blank" rel="noopener" class="btn btn--outline">Route</a>
-      </div>
+      <div class="visit__actions"><a href="tel:+32492860437" class="btn btn--gold">Bel 0492 86 04 37</a><a href="https://www.google.com/maps/dir/?api=1&destination=Classic+Barbershop+Aarschotsesteenweg+664+3012+Leuven" target="_blank" rel="noopener" class="btn btn--ghost">Route plannen</a></div>
     </div>
-    <div class="find__map reveal">
-      <img src="img/gevel.jpg" alt="Gevel van Classic Barbershop aan de Aarschotsesteenweg met barberpaal" loading="lazy">
-      <iframe title="Kaart Classic Barbershop" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://maps.google.com/maps?q=Classic%20Barbershop%2C%20Aarschotsesteenweg%20664%2C%203012%20Leuven&z=15&output=embed"></iframe>
+    <div class="visit__map reveal">
+      <iframe title="Kaart Classic Barbershop" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Classic+Barbershop+Aarschotsesteenweg+664+3012+Leuven&z=16&output=embed"></iframe>
     </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <img src="img/logo-accent.svg" alt="" class="cta__logo">
+    <h2>Tijd voor een <em>frisse cut</em>?</h2>
+    <p>Bel even of loop binnen — we zijn er elke dag.</p>
+    <a href="tel:+32492860437" class="btn btn--gold btn--lg">0492 86 04 37</a>
   </section>
 </main>
 
 <footer class="footer">
-  <p class="brand brand--foot"><span class="brand__script">Classic</span><span class="brand__caps">Barber Shop</span></p>
-  <p>Aarschotsesteenweg 664 · 3012 Wilsele · <a href="tel:+32492860437">0492 86 04 37</a></p>
-  <p class="small">© <span id="year"></span> Classic Barbershop</p>
+  <div class="footer__brand">
+    <img src="img/logo-cream.svg" alt="" class="footer__logo">
+    <p>Classic Barbershop<br><span class="muted">Aarschotsesteenweg 664, 3012 Wilsele (Leuven)</span></p>
+  </div>
+  <div class="footer__links"><a href="tel:+32492860437">0492 86 04 37</a><a href="https://www.google.com/maps/search/?api=1&query=Classic+Barbershop+Aarschotsesteenweg+664+3012+Leuven" target="_blank" rel="noopener">Google Maps</a></div>
+  <p class="footer__copy muted">© <span id="year"></span> Classic Barbershop</p>
 </footer>
 
-<a href="tel:+32492860437" class="fab">Bel de barbier · open 7/7</a>
+<a href="tel:+32492860437" class="fab" aria-label="Bel Classic Barbershop"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span>Bel nu</span></a>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox__close" aria-label="Sluiten">×</button>
+  <button class="lightbox__nav lightbox__prev" aria-label="Vorige">‹</button>
+  <img alt="">
+  <button class="lightbox__nav lightbox__next" aria-label="Volgende">›</button>
+</div>
 
 <script src="script.js"></script>
 </body>
